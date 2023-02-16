@@ -33,10 +33,13 @@
 
 # find the Qt root directory
 # todo : support Qt6
-if(NOT Qt5Core_DIR)
-  find_package(Qt5 COMPONENTS Core REQUIRED)
+
+set(Qt6Core_DIR ${CMAKE_PREFIX_PATH})
+if(NOT Qt6Core_DIR)
+  find_package(Qt6Core REQUIRED)
 endif()
-get_filename_component(QT_MAC_QT_ROOT "${Qt5Core_DIR}/../../.." ABSOLUTE)
+get_filename_component(QT_MAC_QT_ROOT "${Qt6Core_DIR}/../../.." ABSOLUTE)
+
 message(STATUS "Found Qt for Mac: ${QT_MAC_QT_ROOT}")
 
 set(QT_MAC_QT_ROOT ${QT_MAC_QT_ROOT})
